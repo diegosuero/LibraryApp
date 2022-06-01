@@ -4,4 +4,4 @@ Este proyecto se basa en una aplicacion en la cual se pueden manejar la creació
 
 Para correr el ambiente de desarrollo, se puede usar el Docker que esta en la rama , como tambien se puede correr cada servicio por separado, el frontend por una parte, y el backend por otra, en este caso, se precisa tener corriendo un servidor de MSSQL y correr las migraciones que estan en el codigo, poniendo el usuario y contraseña de la base de datos.
 
-##### ATENCION: Este proyecto fue hecho en otro repositorio, por lo que puede no ser la version final y no se tienen los commits originales
+##### ATENCION: Este proyecto fue hecho en otro repositorio, por lo que puede no ser la version final y no se ven reflejados todos los commits
