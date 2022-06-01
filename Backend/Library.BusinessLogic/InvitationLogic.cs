@@ -30,9 +30,9 @@ namespace Library.BusinessLogic
 
           static async Task sendEmail(string email, string subjetcem, string contentms)
         {
-            var apiKey ="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";
+            var apiKey ="";
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("diegosuero1@gmail.com", "LibraryApp");
+            var from = new EmailAddress("", "LibraryApp");
             var subject = subjetcem;
             var to = new EmailAddress(email, "Example User");
             var plainTextContent = "and easy to do anywhere, even with C#";
