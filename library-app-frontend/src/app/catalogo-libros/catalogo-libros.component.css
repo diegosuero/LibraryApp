@@ -1,0 +1,26 @@
+.titulo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+button{
+    width: 100%;
+}
+
+mat-card-header{
+    display: flex;
+    justify-content: center;
+}
+
+.mat-green {
+    background-color: green;
+    color: #fff;
+}
+
+.modificador{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-width: 300px;
+}

@@ -1,0 +1,72 @@
+
+<mat-card >
+    <mat-card-title class="titulo">Catalogo Libros</mat-card-title>
+    <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter()" placeholder="Ex. Mia"[(ngModel)]="filter"  #input>
+      </mat-form-field>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+            <!-- ISBN Column -->
+            <ng-container matColumnDef="ISBN" >
+            <mat-header-cell *matHeaderCellDef> ISBN </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.isbn}} </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="Titulo">
+            <mat-header-cell *matHeaderCellDef> Titulo </mat-header-cell>
+            <mat-cell *matCellDef="let element" > {{element.title}} </mat-cell>
+            </ng-container>
+            
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="Autores">
+                <mat-header-cell *matHeaderCellDef> Autores </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.authors}} </mat-cell>
+            </ng-container>
+            
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Year">
+            <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+            <mat-cell *matCellDef="let element" > {{element.year}} </mat-cell>
+        </ng-container>
+        
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Ejemplares">
+            <mat-header-cell *matHeaderCellDef> Ejemplares </mat-header-cell>
+            <mat-cell *matCellDef="let element"  > {{element.count}} </mat-cell>
+            
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="Action">
+            <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+            <mat-cell *matCellDef="let element" > <button mat-raised-button color="green" (click)="selected(element)">Reservar</button> </mat-cell>
+            
+        </ng-container>
+            
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <br>
+  <div class="modificador" *ngIf="display">
+    <mat-card>
+        <h4>ISBN: {{selectedLibro.ISBN}}</h4>
+        <h4>Titulo: {{selectedLibro.Titulo}}</h4>
+        <br>
+        <mat-label>Fecha de Retiro</mat-label>
+        <br>
+        <mat-form-field>
+            <input matInput [min]="minDate" [matDatepicker]="picker1" [(ngModel)]="fecha">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="green" (click)="reservar()">Reservar</button>
+    </mat-card>
+    
+  </div>
+</mat-card>
+

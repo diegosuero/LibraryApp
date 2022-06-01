@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    <span>LibraryApp</span>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <div *ngIf="isNotLogged()"> 
+      <button mat-button ngShow="isNotLogged()" [routerLink]="['/login']">Login</button>
+  </div>
+    
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['catalogoLibrosAdm']">Inicio</button>
+  
+  
+  <div *ngIf="isLoggedAndAdmin()"> 
+      <button mat-menu-item ngShow="true" [routerLink]="['/altaLibro']" >Alta libro</button>
+      <button mat-menu-item ngShow="true" [routerLink]="['/catalogoLibrosAdm']" >Catalogo Libros</button>
+  </div>
+  <div *ngIf="isLoggedAndNotAdmin()"> 
+    <button mat-menu-item ngShow="true" [routerLink]="['/reservasActivas']" >Reservas</button>
+    <button mat-menu-item ngShow="true" [routerLink]="['/catalogoLibros']" >Catalogo Libros</button>
+</div>
+<div *ngIf="!isNotLogged()"> 
+  <button mat-menu-item (click)="logOut()" class="logOut">Cerrar Sesion</button>
+</div>
+  
+</mat-menu>
+
+<router-outlet></router-outlet>

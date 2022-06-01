@@ -1,0 +1,33 @@
+:host{
+    display: flex;
+    justify-content: center;
+    margin: 100px 0;
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+button{
+    width: 100%;
+}
+
+mat-card-header{
+    display: flex;
+    justify-content: center;
+}
+
+
+.mat-form-field{
+    width: 100%;
+    min-width: 300px;
+    border: black;
+}
+
+.btnRegisrtrarse {
+    background-color: darkmagenta;
+    color: #fff;
+    
+}

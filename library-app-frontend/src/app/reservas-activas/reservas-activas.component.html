@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-title class="titulo">Reservas Activas</mat-card-title>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- Position Column -->
+            <ng-container matColumnDef="Titulo" >
+            <mat-header-cell *matHeaderCellDef> Titulo </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.book.title}} </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="ISBN">
+            <mat-header-cell *matHeaderCellDef> ISBN </mat-header-cell>
+            <mat-cell *matCellDef="let element" > {{element.book.isbn}} </mat-cell>
+            </ng-container>
+            
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="Fecha">
+                <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+                <mat-cell *matCellDef="let element" > {{element.initDate| date:"dd/MM/yyyy"}} </mat-cell>
+            </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</mat-card>

@@ -1,0 +1,134 @@
+
+<mat-card >
+    <mat-card-title class="titulo">Catalogo Libros</mat-card-title>
+    <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter()" placeholder="Ex. Mia"[(ngModel)]="filter"  #input>
+    </mat-form-field>
+  <div>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+             <!-- Id Column -->
+             <ng-container matColumnDef="Id" >
+              <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+              </ng-container>
+            <!-- ISBN Column -->
+            <ng-container matColumnDef="ISBN" >
+            <mat-header-cell *matHeaderCellDef> ISBN </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.isbn}} </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="Titulo">
+            <mat-header-cell *matHeaderCellDef> Titulo </mat-header-cell>
+            <mat-cell *matCellDef="let element" > {{element.title}} </mat-cell>
+            </ng-container>
+            
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="Autores">
+                <mat-header-cell *matHeaderCellDef> Autores </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.authors}} </mat-cell>
+            </ng-container>
+            
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Year">
+            <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+            <mat-cell *matCellDef="let element" > {{element.year }} </mat-cell>
+        </ng-container>
+        
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Ejemplares">
+            <mat-header-cell *matHeaderCellDef> Ejemplares </mat-header-cell>
+            <mat-cell *matCellDef="let element"  > {{element.count}} </mat-cell>
+            
+        </ng-container>
+
+         <!-- Name Column -->
+         <ng-container matColumnDef="Activo">
+          <mat-header-cell *matHeaderCellDef> Activo </mat-header-cell>
+          <mat-cell *matCellDef="let element"  > {{element.isActive}} </mat-cell>
+          
+      </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="Action">
+            <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+            <mat-cell *matCellDef="let element" > <button mat-raised-button color="green" (click)="selected(element)">Modificar</button> <button mat-raised-button color="red" (click)="borrar(element)">Borrar</button> </mat-cell>
+          
+            
+        </ng-container>
+            
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of books"></mat-paginator>
+  </div>
+  <br>
+  <div class="modificador" *ngIf="display">
+    <mat-card>
+        <mat-card-title class="titulo">Modificar Datos</mat-card-title>
+        <mat-form-field>
+            <input matInput (keyup)="onKeyTitulo($event)" placeholder="Titulo" [(ngModel)]="Titutlo">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+              <input matInput (keyup)="onKeyAutores($event)" placeholder="Autores" [(ngModel)]="Autores">
+            </mat-form-field>
+            <br>
+          <mat-form-field>
+              <input type="number" min="0" matInput (keyup)="onKeyISBN($event)" placeholder="ISBN" [(ngModel)]="ISBN">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+               <input type="number" min="0" matInput (keyup)="onKeyYear($event)" placeholder="Year" [(ngModel)]="Year">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input type="number" min="0" matInput (keyup)="onKeyEjemplares($event)" placeholder="Ejemplares" [(ngModel)]="Ejemplares">
+           </mat-form-field>
+           <br>
+           <mat-slide-toggle [(ngModel)]="isChecked">Activo: {{isChecked}}</mat-slide-toggle>
+        <button mat-raised-button class="btnRegisrtrarse" color="green" (click)="modificar()">Modificar</button>
+    </mat-card>
+
+    
+
+  </div>
+</mat-card>
+
+
+<div class = "invitacion">
+  <mat-card class="mat-elevation-z8">
+    <mat-card-title class="titulo">Crear Invitacion</mat-card-title>
+      <mat-form-field>
+          <input matInput placeholder="Mail" [(ngModel)]="Mail">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Tipo de Usuario</mat-label>
+          <mat-select [(value)]="selectedd">
+            <mat-option value="Admin">Admin</mat-option>
+            <mat-option value="Comun">Comun</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+      <button mat-raised-button class="btnRegisrtrarse" color="green" (click)="crearInvitacion()">Invitar</button>
+  </mat-card>
+</div>
+<br>
+
+<div class = "apikey">
+  <mat-card class="mat-elevation-z8">
+    <mat-card-title class="titulo">Gestion de Api Key</mat-card-title>
+        <mat-label>  {{apikey}}</mat-label>
+        <br>
+      <button mat-raised-button class="btnRegisrtrarse" color="green" (click)="actualizarKey()">Actualizar</button>
+  </mat-card>
+</div>
+
+
+
+

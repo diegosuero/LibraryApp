@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Library.DataAccess\Library.DataAccess.csproj" />
+    <ProjectReference Include="..\Library.DataAccess.Interface\Library.DataAccess.Interface.csproj" />
+    <ProjectReference Include="..\Library.Domain\Library.Domain.csproj" />
+    <ProjectReference Include="..\Library.BusinessLogic\Library.BusinessLogic.csproj" />
+    <ProjectReference Include="..\Library.BusinessLogic.Interface\Library.BusinessLogic.Interface.csproj" />
+    <ProjectReference Include="..\Library.SessionLogic.Interface\Library.SessionLogic.Interface.csproj" />
+    <ProjectReference Include="..\Library.SessionLogic\Library.SessionLogic.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

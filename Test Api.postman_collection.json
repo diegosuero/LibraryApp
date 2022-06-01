@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "6210aa59-88dc-4de6-b794-84d26e91e80a",
+		"name": "Test Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RF10",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "a94166c1-4cc0-4286-bdda-ee31cbf8c22a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"da\": \"2019-11-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/Reservation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"Reservation"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

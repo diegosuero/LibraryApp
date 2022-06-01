@@ -1,0 +1,21 @@
+
+<mat-card>
+    <mat-card-title class="titulo">Invitacion a la Organizacion {{NombreOrg}}</mat-card-title>
+    <mat-card-content>
+        <p>Su Rol sera: {{Rol}}</p>
+        <p>{{longText}}</p>
+    </mat-card-content>
+    <mat-form-field>
+        <input matInput  placeholder="Nombre" [(ngModel)]="Nombre">
+    </mat-form-field>    
+    <br>
+    <mat-form-field>
+        <input matInput  placeholder="Email" [(ngModel)]="Email">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput  placeholder="Password" [(ngModel)]="Password">
+    </mat-form-field>
+    
+    <button mat-raised-button class="btnRegisrtrarse" (click)="registrar()">Registrarse</button>
+</mat-card>
